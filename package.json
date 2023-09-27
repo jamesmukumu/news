@@ -13,6 +13,8 @@
     "react-spinners": "^0.13.8"
   },
   "name": "nation-africa",
+  "start":"node app",
+  "build":"npm install",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -21,5 +23,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {},
   "description": ""
 }
