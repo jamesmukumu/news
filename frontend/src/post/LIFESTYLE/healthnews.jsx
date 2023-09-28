@@ -17,7 +17,7 @@ const [errormessage,setErrormessage] = useState('')
 async function Postnews(e){
 e.preventDefault()
 try {
-const response = await axios.post('http://localhost:5000/post/healthnews',{
+const response = await axios.post('https://news-qstz.onrender.com/post/healthnews',{
 Image:imageurl,
 Imagetitle:imagetitle,
 pageHeader:pageheader,

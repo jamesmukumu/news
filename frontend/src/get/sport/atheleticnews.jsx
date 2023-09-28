@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "../../index.css";
 import {BiSearch} from "react-icons/bi"
 import {BiSolidUserCircle} from "react-icons/bi"
-
+import { Link } from "react-router-dom";
 
 function Getathleticnews() {
   const [newsInfo, setNewsinfo] = useState([]);
@@ -13,7 +13,7 @@ function Getathleticnews() {
   useEffect(() => {
     async function Getnews() {
       try {
-        const response = await axios.get('http://localhost:5000/get/allathleticnews');
+        const response = await axios.get('https://news-qstz.onrender.com/get/allathleticnews');
         if (response.data.message === 'News fetched') {
           setNewsinfo(response.data.data);
         } else {
@@ -65,11 +65,11 @@ function Getathleticnews() {
 
 
  <div className="link">
-<b>Football</b>
-<b>Relationship</b>
-<b>Health</b>
-<b>Local</b>
-<b>Global</b>
+<Link to='/footballnews'><b>Football</b></Link>
+<Link to='/relationshipnews'><b>Relationship</b></Link>
+<Link to='/healthnews'><b>Health</b></Link>
+<Link to='/local'><b>Local</b></Link>
+<Link to='/globalnews'><b>Global</b></Link>
 
  </div>
 
@@ -106,6 +106,15 @@ function Getathleticnews() {
          <div className="newsitem">
          <strong>{item.news[3]}</strong>
          </div>
+         <div className="newsitem">
+         <strong>{item.news[4]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[5]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[6]}</strong>
+         </div>
 
 
         <div>
@@ -120,16 +129,31 @@ function Getathleticnews() {
             <img src={item.footballnews.Image} alt="" />
           </div>
           <div className="newsitem">
-            <strong>{item.footballnews.pageHeader}</strong>
+            <figcaption>{item.footballnews.pageHeader}</figcaption>
           </div>
           <div>
-            <strong>Date Article was published:<span>{item.footballnews.datePosted}</span></strong>
+            <figcaption>Date Article was published:<span>{item.footballnews.datePosted}</span></figcaption>
           </div>
           <div className="newsitem">
             <strong>{item.footballnews.news[0]}</strong>
           </div>
           <div className="newsitem">
             <strong>{item.footballnews.news[1]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.footballnews.news[2]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.footballnews.news[3]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.footballnews.news[4]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.footballnews.news[5]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.footballnews.news[6]}</strong>
           </div>
         </div>
       ))}

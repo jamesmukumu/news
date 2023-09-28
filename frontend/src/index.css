@@ -239,6 +239,15 @@ p {
   text-decoration: none;
  text-decoration-line: none;
 }
+strong{
+  font-size: 18px;
+}
+.strong{
+  text-decoration: underline;
+}
+h1{
+  text-decoration: underline;
+}
 .mes{
   font-size: 15px;
   color: darkblue;

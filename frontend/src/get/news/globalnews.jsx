@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "../../index.css";
 import {BiSearch} from "react-icons/bi"
 import {BiSolidUserCircle} from "react-icons/bi"
+import { Link } from "react-router-dom";
 
 function Getglobalnews() {
   const [newsInfo, setNewsinfo] = useState([]);
@@ -12,9 +13,9 @@ function Getglobalnews() {
   useEffect(() => {
     async function Getnews() {
       try {
-        const response = await axios.get('http://localhost:5000/get/allglobalnews');
+        const response = await axios.get('https://news-qstz.onrender.com/get/allglobalnews');
         if (response.data.message === 'News fetched') {
-          setNewsinfo(response.data.data);
+          setNewsinfo(response.data.data); 
         } else {
           setNewsinfo([])
         }
@@ -63,12 +64,11 @@ function Getglobalnews() {
 
 
  <div className="link">
- <b>Athletics</b>
-<b>Relationship</b>
-<b>Health</b>
-<b>Local</b>
-<b>Football</b>
-
+<Link to='/athleticnews'><b>Athletics</b></Link>
+<Link to='/relationshipnews'><b>Relationship</b></Link>
+<Link to='/healthnews'><b>Health</b></Link><b>Local</b>
+<Link to='/footballnews'><b>Football</b></Link>
+<Link to='/local'><b>local</b></Link>
  </div>
 
     </div>
@@ -104,7 +104,15 @@ function Getglobalnews() {
          <div className="newsitem">
          <strong>{item.news[3]}</strong>
          </div>
-
+         <div className="newsitem">
+         <strong>{item.news[4]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[5]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[6]}</strong>
+         </div>
 
         <div>
             <strong className="strong">Related Local news</strong>
@@ -118,16 +126,31 @@ function Getglobalnews() {
             <img src={item.localnews.Image} alt="" />
           </div>
           <div className="newsitem">
-            <strong>{item.localnews.pageHeader}</strong>
+            <figcaption>{item.localnews.pageHeader}</figcaption>
           </div>
           <div>
-            <strong>Date Article was published:<span>{item.localnews.datePosted}</span></strong>
+            <figcaption>Date Article was published:<span>{item.localnews.datePosted}</span></figcaption>
           </div>
           <div className="newsitem">
             <strong>{item.localnews.news[0]}</strong>
           </div>
           <div className="newsitem">
             <strong>{item.localnews.news[1]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.localnews.news[2]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.localnews.news[3]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.localnews.news[4]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.localnews.news[5]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.localnews.news[6]}</strong>
           </div>
         </div>
       ))}

@@ -17,7 +17,7 @@ function Postlogin() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("https://news-qstz.onrender.com/login", {
         username: Username,
         password: Password,
       });
@@ -30,7 +30,7 @@ function Postlogin() {
       }
       if (response.data.message === "matches") {  
         setIsAuthenticated(true)
-        navigate("/login");
+        navigate("/local");
       }
     } catch (error) {
       setMsg("Internal Server Error");

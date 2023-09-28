@@ -1,18 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "../../index.css";
 import {BiSearch} from "react-icons/bi"
 import {BiSolidUserCircle} from "react-icons/bi"
 import { useAuth } from "../../authorization";
+import { useNavigate } from "react-router-dom";
 function Getlocalnews() {
+  let navigate = useNavigate()
   const [newsInfo, setNewsinfo] = useState([]);
   const [errormsg, setErrormsg] = useState('');
-
+  const {isAuthenticated} = useAuth()
   useEffect(() => {
     async function Getnews() {
       try {
-        const response = await axios.get('http://localhost:5000/get/allnews');
+        const response = await axios.get('https://news-qstz.onrender.com/get/allnews');
         if (response.data.message === 'News fetched') {
           setNewsinfo(response.data.data);
         } else {
@@ -80,11 +83,12 @@ function Getlocalnews() {
 
 
  <div className="link">
- <b>Athletics</b>
-<b>Relationship</b>
-<b>Health</b>
+<Link to='/athleticnews'><b>Athletics</b></Link>
+<Link to='/footballnews'><b>Football</b></Link>
+<Link to='/relationshipnews'><b>Relationship</b></Link>
+<Link to='/healthnews'><b>Health</b></Link>
 
-<b>Global</b>
+<Link to='/globalnews'><b>Global</b></Link>
 
  </div>
 
@@ -121,8 +125,15 @@ function Getlocalnews() {
          <div className="newsitem">
          <strong>{item.news[3]}</strong>
          </div>
-
-
+         <div className="newsitem">
+         <strong>{item.news[4]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[5]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[6]}</strong>
+         </div>
         <div>
             <strong className="strong">Related Global news</strong>
             
@@ -135,16 +146,31 @@ function Getlocalnews() {
             <img src={item.globalnews.Image} alt="" />
           </div>
           <div className="newsitem">
-            <strong>{item.globalnews.pageHeader}</strong>
+            <figcaption>{item.globalnews.pageHeader}</figcaption>
           </div>
           <div>
-            <strong>Date Article was published:<span>{item.globalnews.datePosted}</span></strong>
+            <figcaption>Date Article was published:<span>{item.globalnews.datePosted}</span></figcaption>
           </div>
           <div className="newsitem">
             <strong>{item.globalnews.news[0]}</strong>
           </div>
           <div className="newsitem">
             <strong>{item.globalnews.news[1]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.globalnews.news[2]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.globalnews.news[3]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.globalnews.news[4]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.globalnews.news[5]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.globalnews.news[6]}</strong>
           </div>
         </div>
       ))}

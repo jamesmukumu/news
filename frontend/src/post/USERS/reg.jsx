@@ -20,7 +20,7 @@ const {setIsAuthenticated} = useAuth()
 async function PostUSER(e){
 e.preventDefault()
 try {
-    const response = await axios.post('http://localhost:5000/register',{
+    const response = await axios.post('https://news-qstz.onrender.com/register',{
 firstname:Firstname,
 secondname:Secondname,
 email:Email,

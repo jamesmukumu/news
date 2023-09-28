@@ -12,7 +12,7 @@ function Getrelationshipnews() {
   useEffect(() => {
     async function Getnews() {
       try {
-        const response = await axios.get('http://localhost:5000/get/allrelationshipnews');
+        const response = await axios.get('https://news-qstz.onrender.com/get/allrelationshipnews');
         if (response.data.message === 'News fetched') {
           setNewsinfo(response.data.data);
         } else {
@@ -66,7 +66,7 @@ function Getrelationshipnews() {
  <Link to='/athleticnews'><b>Athletics</b></Link>
  <Link to='/healthnews'><b>Health</b></Link>
  <Link to='/globalnews'><b>Global</b></Link>
- <Link to='/'><b>Local</b></Link>
+ <Link to='/local'><b>Local</b></Link>
  <Link to='/footballnews'><b>Football</b></Link>
 
  </div>
@@ -104,6 +104,15 @@ function Getrelationshipnews() {
          <div className="newsitem">
          <strong>{item.news[3]}</strong>
          </div>
+         <div className="newsitem">
+         <strong>{item.news[4]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[5]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[6]}</strong>
+         </div>
 
 
         <div>
@@ -118,16 +127,28 @@ function Getrelationshipnews() {
             <img src={item.healthnews.Image} alt="" />
           </div>
           <div className="newsitem">
-            <strong>{item.healthnews.pageHeader}</strong>
+            <figcaption>{item.healthnews.pageHeader}</figcaption>
           </div>
           <div>
-            <strong>Date Article was published:<span>{item.healthnews.datePosted}</span></strong>
+            <figcaption>Date Article was published:<span>{item.healthnews.datePosted}</span></figcaption>
           </div>
           <div className="newsitem">
             <strong>{item.healthnews.news[0]}</strong>
           </div>
           <div className="newsitem">
             <strong>{item.healthnews.news[1]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.healthnews.news[3]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.healthnews.news[4]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.healthnews.news[5]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.healthnews.news[6]}</strong>
           </div>
         </div>
       ))}

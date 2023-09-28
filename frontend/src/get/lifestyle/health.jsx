@@ -13,7 +13,7 @@ function Gethealthnews() {
   useEffect(() => {
     async function Getnews() {
       try {
-        const response = await axios.get('http://localhost:5000/get/allhealthnews');
+        const response = await axios.get('https://news-qstz.onrender.com/get/allhealthnews');
         if (response.data.message === 'News fetched') {
           setNewsinfo(response.data.data);
         } else {
@@ -67,7 +67,7 @@ function Gethealthnews() {
  <Link to='/athleticnews'><b>Athletics</b></Link>
  <Link to='/relationshipnews'><b>Rekationship</b></Link>
  <Link to='/globalnews'><b>Global</b></Link>
- <Link to='/'><b>Local</b></Link>
+ <Link to='/local'><b>Local</b></Link>
  <Link to='/footballnews'><b>Football</b></Link>
 
 
@@ -106,6 +106,15 @@ function Gethealthnews() {
          <div className="newsitem">
          <strong>{item.news[3]}</strong>
          </div>
+         <div className="newsitem">
+         <strong>{item.news[4]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[5]}</strong>
+         </div>
+         <div className="newsitem">
+         <strong>{item.news[6]}</strong>
+         </div>
 
 
         <div>
@@ -120,16 +129,31 @@ function Gethealthnews() {
             <img src={item.relationshipnews.Image} alt="" />
           </div>
           <div className="newsitem">
-            <strong>{item.relationshipnews.pageHeader}</strong>
+            <figcaption>{item.relationshipnews.pageHeader}</figcaption>
           </div>
           <div>
-            <strong>Date Article was published:<span>{item.relationshipnews.datePosted}</span></strong>
+            <figcaption>Date Article was published:<span>{item.relationshipnews.datePosted}</span></figcaption>
           </div>
           <div className="newsitem">
             <strong>{item.relationshipnews.news[0]}</strong>
           </div>
           <div className="newsitem">
             <strong>{item.relationshipnews.news[1]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.relationshipnews.news[2]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.relationshipnews.news[3]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.relationshipnews.news[4]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.relationshipnews.news[5]}</strong>
+          </div>
+          <div className="newsitem">
+            <strong>{item.relationshipnews.news[6]}</strong>
           </div>
         </div>
       ))}
